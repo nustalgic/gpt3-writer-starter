@@ -6,27 +6,27 @@ import { useState } from 'react';
 const Home = () => {
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
-const [isGenerating, setIsGenerating] = useState(false)
-
-const callGenerateEndpoint = async () => {
-  setIsGenerating(true);
+  const [isGenerating, setIsGenerating] = useState(false)
   
-  console.log("Calling OpenAI...")
-  const response = await fetch('https://github.com/nustalgic/gpt3-writer-starter/blob/d1f810657838f3b8f2d395923fc70c38efa828ae/api', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userInput }),
-  });
-
-  const data = await response.json();
-  const { output } = data;
-  console.log("OpenAI replied...", output.text)
-
-  setApiOutput(`${output.text}`);
-  setIsGenerating(false);
-}
+  const callGenerateEndpoint = async () => {
+    setIsGenerating(true);
+    
+    console.log("Calling OpenAI...")
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userInput }),
+    });
+  
+    const data = await response.json();
+    const { output } = data;
+    console.log("OpenAI replied...", output.text)
+  
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  }
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
   };
