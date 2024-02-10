@@ -44,7 +44,7 @@ const callGenerateEndpoint = async () => {
             <h1>ask, and we'll expand</h1>
           </div>
           <div className="header-subtitle">
-            <h2>write something you want to discuss and we'll turn it into a thread for socials</h2>
+            <h2>write something you want to discuss and we'll turn it into a thread for social</h2>
           </div>
         </div>
       </div>
