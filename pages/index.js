@@ -12,7 +12,7 @@ const callGenerateEndpoint = async () => {
   setIsGenerating(true);
   
   console.log("Calling OpenAI...")
-  const response = await fetch('/api/generate.js', {
+  const response = await fetch('https://github.com/nustalgic/gpt3-writer-starter/blob/d1f810657838f3b8f2d395923fc70c38efa828ae/api', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
